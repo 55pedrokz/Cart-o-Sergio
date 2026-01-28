@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sérgio Cardoso | Psicólogo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card-container">
+    
+    <div class="card-header">
+        <div class="logo-wrapper">
+            <img src="img/mente.jpeg" alt="Logo Mente" class="brain-logo">
+        </div>
+        <div class="qr-box">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/5512982651845" alt="QR WhatsApp">
+        </div>
+    </div>
+
+    <div class="profile-section">
+        <div class="photo-frame">
+            <img src="img/perfil.JPG" alt="Foto Sérgio Cardoso">
+        </div>
+        <div class="identity">
+            <h1>Sérgio Cardoso</h1>
+            <h2>Psicólogo</h2>
+            <p class="crp-num">CRP 08/IS-625</p> 
+            <div class="divider"></div>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <h3 class="box-title">Formação Acadêmica</h3>
+        <ul class="qualifications-list">
+            <li>Graduado em Psicologia e Filosofia (UNISAL)</li>
+            <li>Pós-graduado em Teologia (Fac. Dehoniana)</li>
+            <li>Graduado em Pedagogia (Fac. Claretiana)</li>
+            <li>Mestre em Teologia (PUC/PR)</li>
+            <li>Espiritualidade Cristã (Assis/Itália)</li>
+            <li>Curso de Formadores (CRB/SP)</li>
+        </ul>
+
+        <a href="https://wa.me/5512982651845?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento." class="cta-button" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Agendar Sessão
+        </a>
+
+        <button class="share-btn" onclick="shareCard()">
+            <i class="fa-solid fa-share-nodes"></i> Compartilhar Cartão
+        </button>
+        <div class="social-actions">
+            <a href="https://wa.me/5512982651845" class="btn-icon main-wa" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/sergiohacardoso?igsh=anZhdTdlZHowNjh5" class="btn-icon" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1HtSoYM94n/" class="btn-icon" target="_blank">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="mailto:sergiohacardoso@gmail.com" class="btn-icon" target="_blank">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+    
+   
+
+</div>
+
+<script>
+    function shareCard() {
+        if (navigator.share) {
+            navigator.share({
+                title: 'Sérgio Cardoso | Psicólogo',
+                text: 'Olá! Conheça o cartão digital do Psicólogo Sérgio Cardoso:',
+                url: window.location.href
+            })
+            .then(() => console.log('Compartilhado com sucesso!'))
+            .catch((error) => console.log('Erro ao compartilhar', error));
+        } else {
+            // Caso o navegador (ex: PC antigo) não suporte, ele avisa
+            alert('Para compartilhar, copie o link do navegador e envie para seus contatos!');
+        }
+    }
+</script>
+
+</body>
+</html>
