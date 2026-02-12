@@ -7,55 +7,36 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    /* Altura mínima garantida para cobrir a tela */
     min-height: 100vh; 
-    /* Suporte moderno para altura real de celular */
     min-height: 100dvh; 
 }
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background: linear-gradient(135deg, #e0e5e5 0%, #cfd8dc 100%);
-    background-attachment: fixed; /* Fundo não rola junto */
-    
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
-    /* MUDANÇA CRUCIAL: flex-start em vez de center evita cortar o topo no celular */
     align-items: flex-start; 
-    
-    /* Espaçamento generoso em cima e em baixo para garantir rolagem */
-    padding: 40px 15px 40px 15px; 
-    
+    padding: 40px 15px 80px 15px; /* Aumentado padding inferior para segurança no mobile */
     -webkit-text-size-adjust: 100%;
 }
 
-/* --- Container Principal (O Cartão) --- */
+/* --- Container Principal --- */
 .card-container {
     width: 100%;
     max-width: 390px;
-    
-    /* MUDANÇA: Altura automática sempre */
     height: auto; 
-    /* Remove limites de altura para não cortar nada */
-    min-height: auto;
-    max-height: none;
-
     background: url('img/fundo.png') no-repeat center center;
     background-size: cover;
     border-radius: 30px;
     position: relative;
-    /* Overflow hidden apenas para arredondar cantos, não para cortar conteúdo */
     overflow: hidden; 
-    
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     border: 6px solid #ffffff;
-    
     display: flex;
     flex-direction: column;
-    
-    /* Garante que o cartão fique sempre visível */
     margin: auto; 
-    
     animation: subirSuave 0.8s ease-out;
 }
 
@@ -75,7 +56,6 @@ body {
 .brain-logo {
     width: 65px;
     height: auto;
-    display: block;
     filter: invert(1);
     mix-blend-mode: multiply;
     opacity: 0.9;
@@ -141,16 +121,15 @@ body {
     opacity: 0.8;
 }
 
-/* --- Caixa de Informações (Vidro) --- */
+/* --- Caixa de Informações --- */
 .content-box {
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    margin: 10px 20px 25px;
+    margin: 10px 20px 15px;
     padding: 20px;
     border-radius: 24px;
     border: 1px solid rgba(255,255,255,0.6);
-    /* Removemos flex-grow para não esticar demais, apenas ocupa o espaço necessário */
     display: flex;
     flex-direction: column;
 }
@@ -241,11 +220,10 @@ body {
 }
 
 .social-actions {
-    margin-top: 10px; /* Garante espaço acima dos ícones */
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     gap: 10px;
-    padding-bottom: 5px;
 }
 
 .btn-icon {
@@ -264,27 +242,33 @@ body {
 }
 .main-wa { background: #000000; color: #ffffff; width: 55px; height: 55px; }
 
+/* --- Rodapé de Créditos --- */
+.dev-credits {
+    text-align: center;
+    font-size: 10px;
+    color: #000000;
+    opacity: 0.6;
+    padding: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-/* --- RESPONSIVIDADE SEGURA --- */
+/* --- RESPONSIVIDADE --- */
 @media screen and (max-width: 480px) {
     body {
-        /* No celular, removemos a centralização forçada */
         align-items: flex-start;
         padding-top: 30px; 
-        padding-bottom: 50px; /* Mais espaço no fundo para garantir rolagem */
+        padding-bottom: 60px;
     }
 
     .card-container {
-        max-width: 95%; /* Pequena margem lateral */
+        max-width: 95%;
         margin: 0 auto;
     }
 
-    /* Leve ajuste nos tamanhos para não ficar gigante, mas SEM cortar */
     .photo-frame { width: 115px; height: 115px; }
     .identity h1 { font-size: 22px; }
-    
     .card-header { padding: 20px 20px 5px; }
-    .content-box { padding: 15px; margin-bottom: 20px; }
-    
+    .content-box { padding: 15px; margin-bottom: 15px; }
     .cta-button { font-size: 13px; padding: 12px; }
 }
